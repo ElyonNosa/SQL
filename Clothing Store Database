@@ -1,0 +1,41 @@
+--Create a clothing store database
+
+CREATE TABLE Elano_Store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, category TEXT);
+
+INSERT INTO Elano_Store VALUES (1, "biker shorts", 5, 10, "Summer");
+INSERT INTO Elano_Store VALUES (2, "black jorts", 12, 5, "Summer");
+INSERT INTO Elano_Store Values (3, "leather jacket", 30, 10, "Winter");
+INSERT INTO Elano_Store Values (4, "utility vest", 13, 20, "Fall");
+INSERT INTO Elano_Store Values (5, "swim trunk", 5, 20, "Summer");
+INSERT INTO Elano_Store Values (6, "white vests", 10, 12, "Summer");
+INSERT INTO Elano_Store Values (7, "knitted sweater", 15, 20, "Winter");
+INSERT INTO Elano_Store Values (8, "hats", 5, 4, "Fall");
+INSERT INTO Elano_Store Values (9, "beanie", 3, 12, "Winter");
+INSERT INTO Elano_Store Values (10, "bikini", 12, 25, "Summer");
+INSERT INTO Elano_Store Values (11, "raincoat", 13, 12, "Spring");
+INSERT INTO Elano_Store Values (12, "Windbreeaker", 10, 23, "Spring");
+INSERT INTO Elano_Store Values (13, "All Might Jacket", 20, 12,"Fall");
+INSERT INTO Elano_Store Values (14, "Rain jacket", 10, 2, "Spring");
+INSERT INTO Elano_Store Values (15, "Fur coat", 15, 12, "Winter");
+
+--display the database ordered by price (High to Low)
+SELECT * FROM Elano_Store
+ORDER BY price DESC;
+
+--display how many items are in each category (not the quantity count)
+SELECT category,COUNT(category) "Count"
+FROM Elano_Store
+GROUP BY category
+
+--what are the top 5 items in stock?
+SELECT name, quantity
+FROM Elano_Store
+ORDER BY quantity DESC 
+LIMIT 5;
+
+--Assuming an item is considered cheap if price < 10, what are the cheap items in the store?
+SELECT name, price FROM Elano_Store
+WHERE price < 10
+ORDER BY price;
+
+
