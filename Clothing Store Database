@@ -13,8 +13,8 @@ INSERT INTO Elano_Store Values (8, "hats", 5, 4, "Fall");
 INSERT INTO Elano_Store Values (9, "beanie", 3, 12, "Winter");
 INSERT INTO Elano_Store Values (10, "bikini", 12, 25, "Summer");
 INSERT INTO Elano_Store Values (11, "raincoat", 13, 12, "Spring");
-INSERT INTO Elano_Store Values (12, "Windbreeaker", 10, 23, "Spring");
-INSERT INTO Elano_Store Values (13, "All Might Jacket", 20, 12,"Fall");
+INSERT INTO Elano_Store Values (12, "Windbreaker", 10, 23, "Spring");
+INSERT INTO Elano_Store Values (13, "All Might Jacket", 20, 12, "Fall");
 INSERT INTO Elano_Store Values (14, "Rain jacket", 10, 2, "Spring");
 INSERT INTO Elano_Store Values (15, "Fur coat", 15, 12, "Winter");
 
@@ -27,7 +27,7 @@ SELECT category,COUNT(category) "Count"
 FROM Elano_Store
 GROUP BY category
 
---what are the top 5 items in stock?
+--what are the top 5 items in available stock?
 SELECT name, quantity
 FROM Elano_Store
 ORDER BY quantity DESC 
