@@ -1,4 +1,4 @@
-#This project utilizes the follow Superstore data:
+#This project utilizes the following Superstore data:
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
@@ -26,27 +26,29 @@ VALUES
     (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+    
+    
+-- © Copyright 2025 Break Into Tech  --
 
 
-#Show all items in the table ordered by price, from the last to the most expensive
+-- Order the items by price.
+SELECT item_name, price
+FROM superstore
+ORDER BY price;
 
-SELECT item_name, price FROM superstore
-ORDER BY price DESC;
 
-#Show the total price of each category of items in stock
+-- Show the average price of items in the database
+SELECT ROUND(AVG(price), 2) as "Average Price"
+FROM superstore;
 
-SELECT category, SUM(price*stock_quantity) AS total FROM superstore
+-- Show how many people bought an item that was a kitchen supply
+SELECT COUNT(category) as "Kitchen supply sales"
+FROM superstore
+WHERE category= "Kitchen Supplies";
+
+-- Show which product category has the highest average customer rating?
+SELECT category, ROUND(AVG(average_rating),2) as "Average Rating"
+FROM superstore
 GROUP BY category
-ORDER BY total;
-
-#Show the most expensive kitchen supply item
-
-SELECT item_name, price FROM superstore
-WHERE category = 'Kitchen Supplies'
-ORDER BY price DESC
+ORDER BY "Average Rating" desc
 LIMIT 1;
-
-#How many air purifiers are in stock
-
-SELECT  stock_quantity AS air_purifier_stock FROM superstore
-WHERE item_name="Air Purifier";
